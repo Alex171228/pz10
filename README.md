@@ -49,7 +49,6 @@ Refresh-токены защищены через встроенный blacklist,
 1. Успешный /login (токен) 
 
    <img width="1251" height="632" alt="изображение" src="https://github.com/user-attachments/assets/c0f43c0e-a890-4966-ad1d-bbb14afbec05" />
-
    <img width="1242" height="755" alt="изображение" src="https://github.com/user-attachments/assets/86e6c0ee-7678-4525-aa20-5ca14e66c632" /> 
 
 3. /me и /admin/stats для admin 
