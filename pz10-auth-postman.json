@@ -1,0 +1,120 @@
+{
+  "info": {
+    "name": "PZ10 Auth API",
+    "_postman_id": "f1a1e792-1234-4ad2-9d22-8e5c99999999",
+    "description": "Коллекция для практического занятия №10 (JWT, refresh, RBAC, ABAC, authn/authz). Порт 8080.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://109.237.98.39:8080"
+    },
+    {
+      "key": "accessToken",
+      "value": ""
+    },
+    {
+      "key": "refreshToken",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1) Login as admin",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"secret123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "login"]
+        }
+      }
+    },
+    {
+      "name": "2) Login as user",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"secret123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "login"]
+        }
+      }
+    },
+    {
+      "name": "3) Me (GET /me)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/me",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "me"]
+        }
+      }
+    },
+    {
+      "name": "4) Admin stats (admin only)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/admin/stats",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "admin", "stats"]
+        }
+      }
+    },
+    {
+      "name": "5) User by ID (ABAC)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/users/2",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "users", "2"]
+        }
+      }
+    },
+    {
+      "name": "6) Refresh tokens",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refresh\": \"{{refreshToken}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/refresh",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "refresh"]
+        }
+      }
+    }
+  ]
+}
