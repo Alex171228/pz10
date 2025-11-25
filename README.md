@@ -65,4 +65,4 @@ Refresh-токены защищены через встроенный blacklist,
    
    <img width="1253" height="745" alt="изображение" src="https://github.com/user-attachments/assets/befab74f-2163-41de-ad27-50e900bda02e" />
 
-Для выполнения запросов приложен json для Postman 
+Для выполнения запросов приложен json для Postman https://github.com/Alex171228/pz10/blob/main/pz10-auth-postman.json
